@@ -19,6 +19,8 @@ const TICKER_TEXT = [
   'Héritage & Modernité',
 ];
 
+const ease = [0.19, 1, 0.22, 1];
+
 const Ticker = () => (
   <div className="border-y border-stone bg-cream-50 overflow-hidden py-3">
     <div className="flex animate-ticker whitespace-nowrap">
@@ -45,7 +47,10 @@ const Navbar = () => {
 
   return (
     <>
-      <header
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease }}
         className={[
           'fixed top-0 inset-x-0 z-[200] transition-all duration-700 ease-expo',
           scrolled || menuOpen
@@ -55,8 +60,13 @@ const Navbar = () => {
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between gap-8">
           {/* Logo */}
-          <Link to="/" className="flex flex-col leading-none z-10">
-            <span className="font-serif text-xl md:text-2xl tracking-[-0.02em] text-ink">Atelier</span>
+          <Link to="/" className="flex flex-col leading-none z-10 group">
+            <motion.span
+              whileHover={{ x: 2 }}
+              className="font-serif text-xl md:text-2xl tracking-[-0.02em] text-ink"
+            >
+              Atelier
+            </motion.span>
             <span className="label text-bronze" style={{ fontSize: '0.6rem', letterSpacing: '0.22em' }}>Journal</span>
           </Link>
 
@@ -78,15 +88,17 @@ const Navbar = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            <button
+            <motion.button
               onClick={() => setSearchOpen(!searchOpen)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="p-2 text-ink/60 hover:text-bronze transition-colors duration-300 hidden md:flex"
               aria-label="Recherche"
             >
               <Search size={18} strokeWidth={1.5} />
-            </button>
+            </motion.button>
             <Link to="/contact" className="hidden md:inline-flex btn-primary py-2.5 px-5 text-[0.6rem]">
-              S'Abonner
+              S&apos;Abonner
             </Link>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -98,7 +110,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Search Bar (Desktop) */}
+        {/* Search Bar */}
         <AnimatePresence>
           {searchOpen && (
             <motion.div
@@ -123,9 +135,9 @@ const Navbar = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </header>
+      </motion.header>
 
-      {/* Mobile Full-screen Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -139,9 +151,9 @@ const Navbar = () => {
               {[{ to: '/', label: 'Accueil' }, ...NAV_LINKS].map(({ to, label }, i) => (
                 <motion.div
                   key={to}
-                  initial={{ x: -30, opacity: 0 }}
+                  initial={{ x: -40, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 + i * 0.07, duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                  transition={{ delay: 0.1 + i * 0.07, duration: 0.5, ease }}
                 >
                   <Link
                     to={to}
@@ -181,31 +193,34 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-night text-cream pt-24 pb-10 relative overflow-hidden noise">
-      {/* Top section */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20">
         <div className="border-b border-cream/10 pb-20 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-0">
-          {/* Brand */}
           <div className="md:col-span-5">
             <Link to="/" className="block mb-8">
-              <span className="font-serif text-4xl text-cream tracking-tight">Atelier Journal</span>
+              <motion.span
+                whileHover={{ letterSpacing: '0.02em' }}
+                className="font-serif text-4xl text-cream tracking-tight inline-block"
+              >
+                Atelier Journal
+              </motion.span>
             </Link>
             <p className="text-stone/60 text-sm leading-relaxed max-w-xs font-light">
               Un espace de réflexion sur le design, la culture visuelle et les stratégies qui définissent l&apos;esthétique contemporaine.
             </p>
             <div className="mt-10 flex gap-4">
               {['Instagram', 'Pinterest', 'X'].map(s => (
-                <a
+                <motion.a
                   key={s}
                   href="#"
-                  className="w-10 h-10 border border-cream/10 flex items-center justify-center text-stone/40 hover:border-bronze hover:text-bronze transition-all duration-300 label text-[0.55rem]"
+                  whileHover={{ scale: 1.15, borderColor: '#A8864C' }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 border border-cream/10 flex items-center justify-center text-stone/40 hover:text-bronze transition-colors duration-300 label text-[0.55rem]"
                 >
                   {s[0]}
-                </a>
+                </motion.a>
               ))}
             </div>
           </div>
-
-          {/* Navigation Columns */}
           <div className="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
               <h4 className="label text-bronze mb-6" style={{ fontSize: '0.6rem' }}>Navigation</h4>
@@ -242,8 +257,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Bottom bar */}
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
         <span className="label text-stone/30" style={{ fontSize: '0.6rem' }}>
           © {currentYear} Atelier Journal — Tous droits réservés
@@ -260,12 +273,32 @@ const Footer = () => {
   );
 };
 
+/* ── Page transition wrapper ──────────────────────────── */
+const PageTransition = ({ children }) => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.5, ease }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 export const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col bg-cream">
       <Navbar />
       <main className="flex-1">
-        <Outlet />
+        <PageTransition>
+          <Outlet />
+        </PageTransition>
       </main>
       <Footer />
     </div>
