@@ -47,7 +47,7 @@ const Articles = () => {
         {/* Articles Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
           <AnimatePresence>
-            {filteredArticles.map((article, idx) => (
+            {filteredArticles.map((article) => (
               <motion.article 
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
