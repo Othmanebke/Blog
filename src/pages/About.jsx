@@ -111,7 +111,7 @@ const About = () => {
   const manifestoX = useSpring(rawX, { stiffness: 60, damping: 25 });
 
   return (
-    <div className="bg-cream pt-24 overflow-hidden">
+    <div className="bg-cream pt-28 overflow-hidden">
 
       {/* ─── Hero with parallax layers ─────────────────── */}
       <section ref={heroRef} className="relative h-screen min-h-[700px] flex items-end overflow-hidden">
@@ -141,7 +141,7 @@ const About = () => {
           >
             Notre Histoire
           </motion.span>
-          <h1 className="font-serif text-display text-cream leading-none text-balance max-w-3xl">
+          <h1 className="font-display font-black uppercase text-display text-ink leading-none text-balance max-w-3xl tracking-tight">
             <TextReveal delay={0.3}>Un espace pour penser le visible</TextReveal>
           </h1>
         </motion.div>
@@ -266,11 +266,11 @@ const About = () => {
       </section>
 
       {/* ─── Team with perspective tilt on hover ──────── */}
-      <section className="py-24 bg-ink text-cream overflow-hidden">
+      <section className="py-24 bg-night text-ink overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="flex items-center gap-6 mb-20">
             <span className="label text-bronze" style={{ fontSize: '0.65rem' }}>L&apos;Équipe</span>
-            <div className="flex-1 h-px bg-cream/10" />
+            <div className="flex-1 h-px bg-stone/30" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {authors.map((author, i) => (
@@ -281,7 +281,7 @@ const About = () => {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 1, ease, delay: i * 0.15 }}
                 whileHover={{ y: -12, rotateY: -3 }}
-                className="group md:border-r border-b md:border-b-0 border-cream/10 last:border-0 p-8 md:p-10 hover:bg-cream/5 transition-colors duration-500 perspective-1000"
+                className="group md:border-r border-b md:border-b-0 border-stone/20 last:border-0 p-8 md:p-10 hover:bg-stone/[0.05] transition-colors duration-500 perspective-1000"
               >
                 <div className="relative mb-8 overflow-hidden w-full aspect-[3/4] max-w-[200px]">
                   <motion.img
@@ -293,10 +293,10 @@ const About = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
                 </div>
-                <h3 className="font-serif text-2xl text-cream mb-1">{author.name}</h3>
+                <h3 className="font-display font-black uppercase text-xl text-ink mb-1 tracking-tight">{author.name}</h3>
                 <span className="label text-bronze block mb-5" style={{ fontSize: '0.58rem' }}>{author.role}</span>
                 <p className="text-stone/50 text-sm font-light leading-relaxed mb-6">{author.bio}</p>
-                <span className="label text-cream/20" style={{ fontSize: '0.56rem' }}>{author.articles} articles</span>
+                <span className="label text-ink/20" style={{ fontSize: '0.56rem' }}>{author.articles} articles</span>
               </motion.div>
             ))}
           </div>
@@ -312,7 +312,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease }}
           >
-            <h2 className="font-serif text-4xl md:text-6xl text-ink mb-8 leading-tight">
+            <h2 className="font-display font-black uppercase text-ink leading-none tracking-tight mb-8" style={{ fontSize: 'clamp(2rem, 6vw, 5rem)' }}>
               <TextReveal>Rejoindre la conversation</TextReveal>
             </h2>
             <motion.p

@@ -80,7 +80,7 @@ const ArticleCard = ({ article, index, view }) => {
             className="w-[100%] h-[120%] object-cover grayscale-editorial group-hover:grayscale-0 transition-[filter] duration-1000"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          <span className="absolute top-4 left-4 font-mono text-cream/70 bg-night/50 backdrop-blur-sm px-3 py-1 text-[0.6rem] tracking-widest">
+          <span className="absolute top-4 left-4 font-mono text-ink/50 bg-night/60 backdrop-blur-sm px-3 py-1 text-[0.6rem] tracking-widest">
             {String(index + 1).padStart(2, '0')}
           </span>
           <motion.div
@@ -147,7 +147,7 @@ const Articles = () => {
                   initial={{ y: '100%', rotate: 3 }}
                   animate={{ y: '0%', rotate: 0 }}
                   transition={{ duration: 1, ease }}
-                  className="font-serif text-display text-ink leading-none"
+                  className="font-display font-black uppercase text-display text-ink leading-none tracking-tight"
                 >
                   Éditions
                 </motion.h1>
@@ -167,7 +167,7 @@ const Articles = () => {
                   onClick={() => setView('grid')}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`p-2 border transition-colors duration-300 ${view === 'grid' ? 'bg-ink text-cream border-ink' : 'border-stone/50 text-ink/40 hover:border-ink/40'}`}
+                  className={`p-2 border transition-colors duration-300 ${view === 'grid' ? 'bg-bronze text-night border-bronze' : 'border-stone/50 text-ink/40 hover:border-ink/40'}`}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                     <rect x="0" y="0" width="6" height="6" /><rect x="10" y="0" width="6" height="6" />
@@ -178,7 +178,7 @@ const Articles = () => {
                   onClick={() => setView('list')}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`p-2 border transition-colors duration-300 ${view === 'list' ? 'bg-ink text-cream border-ink' : 'border-stone/50 text-ink/40 hover:border-ink/40'}`}
+                  className={`p-2 border transition-colors duration-300 ${view === 'list' ? 'bg-bronze text-night border-bronze' : 'border-stone/50 text-ink/40 hover:border-ink/40'}`}
                 >
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
                     <rect x="0" y="0" width="16" height="2.5" /><rect x="0" y="6.5" width="16" height="2.5" /><rect x="0" y="13" width="16" height="2.5" />
@@ -249,7 +249,7 @@ const Articles = () => {
                 key={n}
                 whileHover={{ scale: 1.15 }}
                 whileTap={{ scale: 0.9 }}
-                className={`w-10 h-10 label flex items-center justify-center border transition-all duration-300 ${n === 1 ? 'bg-ink text-cream border-ink' : 'border-stone text-ink/40 hover:border-ink/40'}`}
+                className={`w-10 h-10 label flex items-center justify-center border transition-all duration-300 ${n === 1 ? 'bg-bronze text-night border-bronze' : 'border-stone text-ink/40 hover:border-ink/40'}`}
                 style={{ fontSize: '0.6rem' }}
               >
                 {n}

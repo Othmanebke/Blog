@@ -295,7 +295,7 @@ const Contact = () => {
                         className={[
                           'label px-4 py-2.5 border transition-all duration-300',
                           formState.topic === t
-                            ? 'bg-ink text-cream border-ink'
+                            ? 'bg-bronze text-night border-bronze'
                             : 'border-stone/50 text-ink/40 hover:border-ink/40 hover:text-ink/70',
                         ].join(' ')}
                         style={{ fontSize: '0.58rem' }}

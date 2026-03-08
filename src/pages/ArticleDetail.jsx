@@ -51,7 +51,7 @@ const RelatedCard = ({ article, index }) => {
             style={{ y }}
             className="w-full h-[130%] object-cover grayscale-editorial group-hover:grayscale-0 transition-[filter] duration-700"
           />
-          <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/10 transition-colors duration-500" />
+          <div className="absolute inset-0 bg-night/0 group-hover:bg-night/15 transition-colors duration-500" />
         </div>
         <span className="label text-bronze mb-3 block" style={{ fontSize: '0.58rem' }}>{article.category}</span>
         <h4 className="font-serif text-lg text-ink leading-snug group-hover:text-bronze transition-colors duration-400 text-balance mb-3">
@@ -125,8 +125,8 @@ const ArticleDetail = () => {
           transition={{ delay: 1.5, duration: 0.8 }}
           className="absolute top-32 right-6 md:right-12 hidden md:flex flex-col items-end gap-1"
         >
-          <span className="label text-cream/30" style={{ fontSize: '0.58rem' }}>Issue — 2026</span>
-          <span className="font-mono text-cream/20 text-[0.55rem]">No. {String(article.id).padStart(3, '0')}</span>
+          <span className="label text-ink/30" style={{ fontSize: '0.58rem' }}>Issue — 2026</span>
+          <span className="font-mono text-ink/20 text-[0.55rem]">No. {String(article.id).padStart(3, '0')}</span>
         </motion.div>
 
         {/* Text layer with different parallax speed */}
@@ -154,7 +154,7 @@ const ArticleDetail = () => {
           </motion.div>
 
           {/* Word-by-word title reveal */}
-          <h1 className="font-serif text-hero text-cream text-balance leading-tight max-w-4xl mb-8">
+          <h1 className="font-display font-black uppercase text-hero text-ink text-balance leading-tight max-w-4xl mb-8 tracking-tight">
             <WordReveal delay={0.5}>{article.title}</WordReveal>
           </h1>
 
