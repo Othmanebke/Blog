@@ -1,79 +1,156 @@
-// src/data/mockData.js
 export const categories = [
-  { id: 'design', name: 'Design', slug: 'design' },
-  { id: 'culture', name: 'Culture', slug: 'culture' },
-  { id: 'strategy', name: 'Stratégie', slug: 'strategie' },
-  { id: 'creative', name: 'Créativité', slug: 'creativite' }
+  { id: 'design', name: 'Design', slug: 'design', description: 'Formes, espaces et systèmes visuels' },
+  { id: 'culture', name: 'Culture', slug: 'culture', description: "L'art de vivre contemporain" },
+  { id: 'strategie', name: 'Stratégie', slug: 'strategie', description: 'Construire les marques de demain' },
+  { id: 'creativite', name: 'Créativité', slug: 'creativite', description: 'Process, matière et inspiration' },
+  { id: 'mode', name: 'Mode', slug: 'mode', description: 'La mode comme langage' },
+];
+
+export const authors = [
+  {
+    id: 1,
+    name: 'Aurélie Morel',
+    role: 'Rédactrice en Chef',
+    bio: "Diplômée de Sciences Po Paris et de la London School of Design, Aurélie explore depuis dix ans l'intersection entre langage, espace et identité visuelle.",
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400&h=400',
+    articles: 38,
+  },
+  {
+    id: 2,
+    name: 'Marc Auban',
+    role: 'Directeur Artistique',
+    bio: "Ancien directeur de création chez deux grandes agences parisiennes, Marc théorise la notion d'élégance fonctionnelle à travers essais et installations.",
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=400',
+    articles: 25,
+  },
+  {
+    id: 3,
+    name: 'Diane Lestang',
+    role: 'Éditrice Associée',
+    bio: "Critique de mode indépendante et consultante en stratégie de marque, Diane interroge les codes du luxe contemporain avec une plume acérée.",
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400',
+    articles: 19,
+  },
 ];
 
 export const articles = [
   {
     id: 1,
-    title: "Le minimalisme brutal : L'évolution de l'esthétique du vide",
-    excerpt: "Comment les grandes maisons de couture redéfinissent l'espace et le silence à travers des volumes stricts et des palettes monocolores.",
-    category: "Design",
-    author: {
-      name: "Aurélie Morel",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&h=200",
-      bio: "Rédactrice en chef, experte en design et tendances visuelles."
-    },
-    date: "12 Octobre 2026",
-    readTime: "6 min",
-    image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=1200",
+    title: "Le minimalisme brutal : l'évolution de l'esthétique du vide",
+    excerpt: "Comment les grandes maisons redéfinissent l'espace et le silence à travers des volumes stricts et des palettes monocolores qui récusent tout ornement.",
+    category: 'Design',
+    authorId: 1,
+    date: '12 Octobre 2026',
+    readTime: '6 min',
+    image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&q=80&w=1600&h=900',
+    image2: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Minimalisme', 'Architecture', 'Intérieur'],
     featured: true,
-    content: "L'art du vide n'est plus ce qu'il était. Autrefois associé à la simplicité, il s'exprime aujourd'hui avec une force presque brutale..."
+    color: '#E8E4DC',
+    content: [
+      "L'art du vide n'est plus ce qu'il était. Autrefois associé à la timidité, à l'économie de moyens, parfois à la paresse creative, il s'exprime aujourd'hui avec une force presque brutale — un silence organisé, presque politique.",
+      "Les grandes maisons de couture et de design d'intérieur qui ont dominé les présentations de cette année partagent un point commun radical : elles ont choisi d'ôter plutôt qu'ajouter. Supprimer le superflu n'est pas un aveu de manque, c'est devenu le geste créatif le plus courageux de notre époque.",
+      "Dans un monde saturé de signaux, de stimuli et d'interfaces en compétition permanente, le vide devient le luxe suprême. Offrir au regard un espace pour respirer, une surface vierge sur laquelle poser ses propres projections — c'est désormais la promesse la plus désirable qu'une marque puisse faire.",
+      "Ce mouvement n'est pas né ex nihilo. Il s'inscrit dans une longue tradition qui va de Mies van der Rohe à Rei Kawakubo, de Donald Judd aux architectures de Tadao Ando. Mais ce qui change aujourd'hui, c'est la radicalité de l'engagement. Les espaces ne sont plus seulement épurés — ils sont résolument vides, comme provocateurs.",
+    ],
+    pullQuote: '"Le détail n\'est pas un détail. C\'est la conception." — Charles Eames',
   },
   {
     id: 2,
     title: "L'art subtil de la typographie éditoriale en 2026",
-    excerpt: "Pourquoi le retour des empattements marqués bouleverse les codes visuels du digital.",
-    category: "Design",
-    author: {
-      name: "Marc Auban",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200"
-    },
-    date: "08 Octobre 2026",
-    readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1557992260-ec58e38d363c?auto=format&fit=crop&q=80&w=800",
-    content: "Nous assistons à une renaissance de la direction artistique numérique classique..."
+    excerpt: "Pourquoi le retour des empattements marqués bouleverse les codes visuels du digital et redonne ses lettres de noblesse à la page imprimée.",
+    category: 'Design',
+    authorId: 2,
+    date: '08 Octobre 2026',
+    readTime: '4 min',
+    image: 'https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?auto=format&fit=crop&q=80&w=1600&h=900',
+    image2: 'https://images.unsplash.com/photo-1557992260-ec58e38d363c?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Typographie', 'Éditorial', 'Digital'],
+    featured: false,
+    color: '#F0EDE8',
+    content: [
+      "Nous assistons à une renaissance de la direction artistique numérique classique. Après des années de sans-serif géométriques règnant sans partage sur les interfaces digitales, le serif revient en force — et il revient avec une ambition clairement éditoriale.",
+      "Ce n'est pas un retour nostalgique. C'est une réponse à une forme de fatigue visuelle que l'on peut désormais mesurer. Des études récentes en UX démontrent que les utilisateurs lisent plus longtemps et avec une meilleure rétention sur des interfaces qui utilisent une typographie à empattements bien choisie.",
+      "Les fonderies indépendantes comme Klim Type Foundry, Commercial Type ou Grilli Type proposent aujourd'hui des familles typographiques conçues expressément pour naviguer entre le print et le digital avec une égale élégance — une exigence que le marché était incapable de satisfaire il y a dix ans.",
+    ],
+    pullQuote: '"La typographie est l\'art d\'agencer les caractères pour rendre écrit le langage non seulement lisible, mais beau." — Robert Bringhurst',
   },
   {
     id: 3,
     title: "Construire une marque intemporelle : l'approche héritage",
-    excerpt: "Les stratégies discrètes qui permettent aux jeunes maisons de s'inscrire dans l'éternité.",
-    category: "Stratégie",
-    author: {
-      name: "Aurélie Morel"
-    },
-    date: "05 Octobre 2026",
-    readTime: "8 min",
-    image: "https://images.unsplash.com/photo-1623941400827-51e417122184?auto=format&fit=crop&q=80&w=800",
-    content: "Dans un monde saturé de lancements bruyants, le silence devient la stratégie ultime..."
+    excerpt: "Les stratégies discrètes qui permettent aux jeunes maisons de s'inscrire dans la durée, en cultivant un storytelling profond et une cohérence visuelle radicale.",
+    category: 'Stratégie',
+    authorId: 1,
+    date: '05 Octobre 2026',
+    readTime: '8 min',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1600&h=900',
+    image2: 'https://images.unsplash.com/photo-1553531889-e6cf4d692b1b?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Branding', 'Luxe', 'Identité'],
+    featured: false,
+    color: '#EDE9E3',
+    content: [
+      "Dans un monde saturé de lancements bruyants et de valeurs d'instantanéité, le silence devient la stratégie ultime. Construire une marque pour traverser les générations nécessite paradoxalement de résister à l'urgence de l'époque.",
+      "L'approche héritage ne consiste pas à copier les codes d'une ancienne maison. Il s'agit d'une mise en scène réfléchie de la profondeur — réelle ou construite — d'une identité. C'est l'art de raconter une histoire dont la première page se situerait avant même la création de l'entreprise.",
+      "Les grands acteurs du luxe l'ont compris depuis longtemps : Hermès ne vend pas des sacs, il vend une mythologie du geste artisanal. Patek Philippe ne vend pas des montres, il vend la conversation entre générations. Ces récits ne naissent pas spontanément — ils sont le résultat d'un travail acharné de construction sémantique.",
+    ],
+    pullQuote: '"On n\'hérite pas de la terre de ses ancêtres, on l\'emprunte à ses enfants." — Antoine de Saint-Exupéry',
   },
   {
     id: 4,
-    title: "Le nouveau mécénat : Quand l'entreprise devient galerie",
-    excerpt: "Comment l'intégration d'oeuvres d'art devient le marqueur ultime du luxe d'entreprise.",
-    category: "Culture",
-    author: {
-      name: "Diane Lestang"
-    },
-    date: "28 Septembre 2026",
-    readTime: "5 min",
-    image: "https://images.unsplash.com/photo-1518991669955-9c7e68ee46aa?auto=format&fit=crop&q=80&w=800",
-    content: "L'art n'est plus seulement une décoration, il est une déclaration de valeurs..."
+    title: "Le nouveau mécénat : quand l'entreprise devient galerie",
+    excerpt: "Comment l'intégration d'œuvres d'art dans l'espace de marque est devenue le marqueur ultime du luxe d'entreprise contemporain.",
+    category: 'Culture',
+    authorId: 3,
+    date: '28 Septembre 2026',
+    readTime: '5 min',
+    image: 'https://images.unsplash.com/photo-1518991669955-9c7e68ee46aa?auto=format&fit=crop&q=80&w=1600&h=900',
+    image2: 'https://images.unsplash.com/photo-1531913764164-f85c52e6e71e?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Art', 'Corporate', 'Mécénat'],
+    featured: false,
+    color: '#EAE6DF',
+    content: [
+      "L'art n'est plus seulement une décoration, il est une déclaration de valeurs. Dans les sièges sociaux des grandes firmes comme dans les boutiques qui redéfinissent l'expérience de vente, l'intégration d'œuvres d'art originales répond à une logique à la fois symbolique et stratégique.",
+      "Louis Vuitton Malletier et la Fondation éponyme, Prada avec son OMA, Chanel et ses projets Nexus — la liste des marques qui ont fait du mécénat culturel un pilier de leur identité de marque ne cesse de s'allonger. Et pour cause : le client contemporain de luxe est aussi un consommateur averti d'art et de culture.",
+    ],
+    pullQuote: '"Pour qu\'une marque survive, elle doit mériter sa place dans la culture." — Jean-Noël Kapferer',
   },
   {
     id: 5,
-    title: "L'obsession des matériaux organiques",
-    excerpt: "Travailler la texture imparfaite comme une signature visuelle et émotionnelle.",
-    category: "Créativité",
-    author: {
-      name: "Marc Auban"
-    },
-    date: "15 Septembre 2026",
-    readTime: "7 min",
-    image: "https://images.unsplash.com/photo-1515281239448-2abe3297d31b?auto=format&fit=crop&q=80&w=800",
-    content: "L'œil réclame aujourd'hui de la friction. Le lisse indiffère..."
-  }
+    title: "L'obsession des matériaux organiques : texture, imperfection, vérité",
+    excerpt: "Pourquoi les créateurs contemporains font du matériau brut et de l'imperfection tactile leur signature la plus désirable.",
+    category: 'Créativité',
+    authorId: 2,
+    date: '15 Septembre 2026',
+    readTime: '7 min',
+    image: 'https://images.unsplash.com/photo-1515281239448-2abe3297d31b?auto=format&fit=crop&q=80&w=1600&h=900',
+    image2: 'https://images.unsplash.com/photo-1558618047-3c8c8d45a9f6?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Matériau', 'Tactilité', 'Craft'],
+    featured: false,
+    color: '#F2EEE9',
+    content: [
+      "L'œil réclame aujourd'hui de la friction. Le lisse indiffère. La perfection synthétique, obtenue par des moyens numériques parfaitement maîtrisés, provoque une forme de rejet que les neurosciences commencent à documenter. L'imperfection, au contraire, crée un lien affectif.",
+      "Cette tendance au matériau brut et à la texture assumée traverse tous les secteurs créatifs simultanément — une synchronicité qui révèle quelque chose de profond sur notre rapport collectif au monde physique dans une époque où le virtuel menace de tout uniformiser.",
+      "Les créateurs qui travaillent le lin brut, le béton ciré, la céramique irrégulière ou le cuir non traité ne font pas que choisir des matériaux. Ils formulent une philosophie. Une résistance à l'uniformisation. Une revendication de la singularité contre le cloning industriel.",
+    ],
+    pullQuote: '"La beauté véritable est dans la perfection de l\'imperfection." — Wabi-sabi',
+  },
+  {
+    id: 6,
+    title: "La silhouette comme manifeste : mode et pouvoir en 2026",
+    excerpt: "De l'imperméable à épaules XXL au tailleur asymétrique, comment la mode redéfinit les codes de l'autorité et du genre contemporain.",
+    category: 'Mode',
+    authorId: 3,
+    date: '10 Septembre 2026',
+    readTime: '6 min',
+    image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1600&h=900',
+    image2: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1200',
+    tags: ['Mode', 'Silhouette', 'Genre'],
+    featured: false,
+    color: '#E8E4DC',
+    content: [
+      "La silhouette n'est jamais neutre. Chaque contour, chaque volume, chaque extension ou contraction de la forme corporelle porte en elle une signification politique, culturelle, économique. La mode le sait depuis toujours.",
+      "Ce qui est nouveau, c'est la conscience avec laquelle les créateurs contemporains manient cet outil. Les épaules XXL ne sont plus un accessoire de style des années 80 revisité — elles sont devenues un manifeste de puissance assumée qui transcende les catégories de genre.",
+    ],
+    pullQuote: '"La mode est l\'armure pour survivre à la réalité." — Bill Cunningham',
+  },
 ];
